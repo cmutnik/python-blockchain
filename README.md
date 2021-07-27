@@ -1,2 +1,2 @@
 # python-blockchain
- python blockchain implementation
+ python blockchain implementation with flask ledger/api
