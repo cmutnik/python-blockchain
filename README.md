@@ -1,2 +1,2 @@
 # python-blockchain
- python blockchain 
+ python blockchain implementation
