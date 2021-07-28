@@ -30,6 +30,7 @@ class Block:
         hash():
             ...
         """
+
     def __init__(self, index, proof, prev, data, nonce, timestamp=time.time()):
         """
        Constructs attributes for pre-hashed block.
@@ -49,8 +50,8 @@ class Block:
         timestamp: str
             ...
        """
-        self.__block = [index, proof, prev,
-                        data, nonce, timestamp]
+        self.__block = {'index': index, 'proof': proof, 'prev': prev,
+                        'data': data, 'nonce': nonce, 'timestamp': timestamp}
 
     @property
     def hash(self):
@@ -60,7 +61,7 @@ class Block:
     @hash.setter
     def hash(self, state):
         if state:
-            self.__block = hashlib.blake2b(str(json.dumps(self.__block)).encode('utf-8')).hexdigest()
+            self.__block = hashlib.blake2b(str(json.dumps(self.__block, sort_keys=True)).encode('utf-8')).hexdigest()
 
     @hash.deleter
     def hash(self):
